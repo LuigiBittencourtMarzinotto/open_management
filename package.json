@@ -9,15 +9,20 @@
         "@popperjs/core": "^2.11.6",
         "@vitejs/plugin-vue": "^4.5.0",
         "axios": "^1.7.4",
-        "bootstrap": "^5.2.3",
+        "bootstrap": "^5.3.3",
         "laravel-vite-plugin": "^1.0",
         "sass": "^1.56.1",
         "vite": "^5.0",
         "vue": "^3.2.37"
     },
     "dependencies": {
+        "bcryptjs": "^2.4.3",
+        "bootstrap-icons": "^1.11.3",
+        "jquery": "^3.7.1",
+        "sweetalert2": "^11.14.3",
         "vue-router": "^4.4.5",
         "vue3-google-login": "^2.0.33",
-        "vue3-google-oauth2": "^1.0.7"
+        "vue3-google-oauth2": "^1.0.7",
+        "vuex": "^4.0.2"
     }
 }

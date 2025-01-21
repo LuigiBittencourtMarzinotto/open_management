@@ -1,30 +1,16 @@
 <template>
-  <div class="container-fluid m-0 vh-100 d-flex justify-content-center">
+  <div class="container-fluid m-0 vh-100 d-flex justify-content-center" > 
     <div class="row w-100">
       <div class="col-12 p-0">
-        <card-component has-border="true">
+        <card-component no-padding=true>
           <template v-slot:body>
             <div class="row h-100">
-              <div class="col-6 height-100">
-                <card-component center="true">
-                  <template v-slot:body>
-                    <form-component form-id="frmLogin">
-                      <template v-slot:body>
-                        teettetet
-                        <div class="mb-3 d-flex">
-                          <GoogleLogin
-                            :callback="callback"
-                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                            prompt
-                            auto-login
-                          />
-                        </div>
-                      </template>
-                    </form-component>
-                  </template>
-                </card-component>
+              <div class="col-lg-6 col-12 height-100">
+                <component :is="currentComponent" :token="token" :route-dashboard="routeDashboard" :route-login="routeLogin" 
+                  :route-register="routeRegister" :route-code-verification-email="routeCodeVerificationEmail" 
+                  :route-verified-email="routeVerifiedEmail" :route-forgetten-password="routeForgettenPassword"/>
               </div>
-              <div class="col-6"></div>
+              <div class="col-lg-6 bg-overlay d-none d-lg-block"></div>
             </div>
           </template>
         </card-component>
@@ -32,12 +18,13 @@
     </div>
   </div>
 </template>
-<script setup>
-import { useRouter } from "vue-router";
+<script>
+import { mapState } from 'vuex';
 
-const router = useRouter();
-
-const callback = (resposnse) => {
-  console.log("adad", resposnse);
+export default {
+  props: ['token', 'routeDashboard', 'routeLogin', 'routeRegister', 'routeCodeVerificationEmail', 'routeVerifiedEmail', 'routeForgettenPassword'],
+  computed: {
+    ...mapState(['currentComponent']),
+  },
 };
 </script>

@@ -12,7 +12,7 @@ class LoginController extends Controller
      */
     public function index()
     {
-        return view("home");
+        return view("login");
     }
 
     /**
@@ -28,15 +28,15 @@ class LoginController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return AuthController::login($request);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Login $login)
+    public function show(String $codigoUser )
     {
-        //
+        dd($codigoUser);
     }
 
     /**

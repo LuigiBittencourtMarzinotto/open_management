@@ -2,17 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\NomeDoModelo;
-use Illuminate\Http\Request;
+use App\Models\Dashboard;
+use App\Http\Requests\StoreDashboardRequest;
+use App\Http\Requests\UpdateDashboardRequest;
 
-class NomeDoModeloController extends Controller
+class DashboardController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        return view('app.dashboard');
     }
 
     /**
@@ -26,7 +27,7 @@ class NomeDoModeloController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreDashboardRequest $request)
     {
         //
     }
@@ -34,7 +35,7 @@ class NomeDoModeloController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(NomeDoModelo $nomeDoModelo)
+    public function show(Dashboard $dashboard)
     {
         //
     }
@@ -42,7 +43,7 @@ class NomeDoModeloController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(NomeDoModelo $nomeDoModelo)
+    public function edit(Dashboard $dashboard)
     {
         //
     }
@@ -50,7 +51,7 @@ class NomeDoModeloController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, NomeDoModelo $nomeDoModelo)
+    public function update(UpdateDashboardRequest $request, Dashboard $dashboard)
     {
         //
     }
@@ -58,7 +59,7 @@ class NomeDoModeloController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(NomeDoModelo $nomeDoModelo)
+    public function destroy(Dashboard $dashboard)
     {
         //
     }

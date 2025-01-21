@@ -1,5 +1,6 @@
 <template>
-    <form action="" :id="formId">
+    <form action="" :id="formId" >
+        <input type="hidden" name="_token" id="_token" :value="token">
         <slot name="body">
 
         </slot>
@@ -8,6 +9,8 @@
 </template>
 <script>
 export default {
-    props: ['formId']
+    props: ['formId', 'token'],
+    methods:{
+    }
 }
 </script>
