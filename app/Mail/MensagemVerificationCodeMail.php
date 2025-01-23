@@ -31,7 +31,7 @@ class MensagemVerificationCodeMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Open Your Finance - Criamos a sua conta ' . $this->_nomeUser,
+            subject: 'Gerenciador de Usuarios - Criamos a sua conta ' . $this->_nomeUser,
         );
     }
 

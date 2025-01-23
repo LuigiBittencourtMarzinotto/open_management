@@ -12,7 +12,7 @@
                       <form-component form-id="frmLogin" :token="token" class="d-flex flex-column align-items-center"
                         @submit.prevent="formUpdatePassword($event)">
                         <template v-slot:body>
-                          <img src="../../img/FINANCE.png" alt="" class="logo my-3">
+                          <img src="../../img/JAGUA_LOGO_PMS.png" alt="" class="logo my-3">
                           <h3 class="fw-bold">Definir uma nova senha</h3>
                           <div class='col-md-7 col-12 my-3'>
                             <p class="text text-body-secondary text-center">

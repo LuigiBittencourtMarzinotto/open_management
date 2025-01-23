@@ -36,7 +36,6 @@ class LoginController extends Controller
      */
     public function show(String $codigoUser )
     {
-        dd($codigoUser);
     }
 
     /**

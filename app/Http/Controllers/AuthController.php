@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Mail\MensagemForgettenPasswordMail;
 use App\Mail\MensagemTesteMail;
 use App\Mail\MensagemVerificationCodeMail;
+use App\Models\EnderecoUser;
 use App\Models\Login;
 use App\Models\User;
 use App\Notifications\VerificationCodeNotification;
@@ -12,6 +13,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 use Tymon\JWTAuth\Facades\JWTAuth;
@@ -40,6 +42,7 @@ class AuthController extends Controller
             $user = JWTAuth::setToken($token)->authenticate();
             Session::put('nameUser', $user->name);
             Session::put('nameID', Crypt::encrypt($user->id));
+            Session::put('tipoUser', $user->user_tipo);
             Session::flash('token2', $token);
             $cookie = cookie('tokewwdn', $token, 120); // 120 minutos de validade
             $request->session()->put("teste", "sdsddsds");
@@ -52,17 +55,28 @@ class AuthController extends Controller
 
     public function register(Request $request)
     {
-
         $request->validate($this->user->rules(), $this->user->feedback());
         $request->merge([
             'code_verification' => $this->gerarNumerosAleatorios()
         ]);
-        $user = $this->user->create([
+        $user = User::create([
             "name" => $request->name,
             "email" => $request->email,
             "password" => Hash::make($request->password),
-            "code_verification" => $request->code_verification
+            "code_verification" => $request->code_verification,
+            "user_tipo"=> 0
         ]);
+
+        EnderecoUser::create([
+            "cep" => $request->cep,
+            "uf" => $request->uf,
+            "cidade" => $request->cidade,
+            "bairro" => $request->bairro,
+            "logradouro" => $request->endereco,
+            "numero" => $request->numero,
+            "usuario_id" => $user->id
+        ]);
+
         Mail::to($request->email)->send(new MensagemVerificationCodeMail($request->name, $request->code_verification));
         return response()->json($request, 201);
     }
@@ -146,5 +160,15 @@ class AuthController extends Controller
         ]);
         return response()->json(['message' => 'Senha atualizada com sucesso!'], 200);
 
+    }
+
+    public function getDataByCEP(Request $request)
+    {
+        $cep = $request->cep;
+        $response = Http::get("https://viacep.com.br/ws/$cep/json/");
+        if ($response->successful()) {
+            return response()->json($response->json());
+        }
+        return response()->json(['error' => 'CEP não encontrado'], 404);
     }
 }

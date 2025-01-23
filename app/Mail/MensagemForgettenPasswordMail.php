@@ -32,7 +32,7 @@ class MensagemForgettenPasswordMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Open Your Finance - Atualização de senha',
+            subject: 'Gerenciador de Usuarios - Atualização de senha',
         );
     }
 

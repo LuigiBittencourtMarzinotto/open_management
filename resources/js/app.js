@@ -130,6 +130,11 @@ app.component('modal-component', ModalComponents);
 import ResetPasswordComponent from './components/ResetPasswordComponent.vue';
 app.component('reset-password-component', ResetPasswordComponent);
 
+import ShowUserComponents from './components/ShowUserComponents.vue';
+app.component('show-user-component', ShowUserComponents);
+
+import ListUsersComponent from './components/ListUsersComponent.vue';
+app.component('list-users-component', ListUsersComponent);
 
 /**
  * The following block of code may be used to automatically register your

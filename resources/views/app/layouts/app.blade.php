@@ -22,8 +22,11 @@
 <body data-bs-theme="light">
     <div id="app">
         <main> 
-            <nav-bar-component name-user='{{ session('nameUser') }}' route-logout='{{ route('login.logout') }}' route-login-user='{{ route('login.show', session('nameID')) }}' route-menu={{ route('menu.index') }}></nav-bar-component>
-            @yield('content')
+            <nav-bar-component name-user='{{ session('nameUser') }}' route-logout='{{ route('login.logout') }}' route-user={{ route('user.view') }} route-login-user='{{ route('show-user', session('nameID')) }}' tipo-user={{ session('tipoUser') }} route-home={{ route('dashboard.index') }}></nav-bar-component>
+            <div class="d-flex justify-content-center">
+                @yield('content')
+
+            </div>
         </main>
     </div>
 </body>

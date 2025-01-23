@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
@@ -20,7 +21,9 @@ class User extends Authenticatable implements JWTSubject
     protected $fillable = [
         'name',
         'email',
-        'password'
+        'password',
+        'code_verification',
+        'user_tipo'
     ];
 
     /**
@@ -36,7 +39,7 @@ class User extends Authenticatable implements JWTSubject
     public function rules(){
         return [
             'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:users,email',
+            'email' => 'required|email|unique:users',
             'password' => 'required|string|min:6',
         ];
     } 
@@ -74,5 +77,10 @@ class User extends Authenticatable implements JWTSubject
     public function getJWTCustomClaims()
     {
         return []; // Você pode adicionar reivindicações personalizadas aqui, se necessário
+    }
+
+    public function EnderecoUser(): HasOne
+    {
+        return $this->hasOne(EnderecoUser::class, 'usuario_id', 'id');
     }
 }

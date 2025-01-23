@@ -5,10 +5,10 @@
                 <form-component form-id="frmLogin" method="POST" :token="token"
                     class="d-flex flex-column align-items-center" @submit.prevent="formLogin($event)">
                     <template v-slot:body>
-                        <img src="../../img/FINANCE.png" alt="" class="logo my-3">
-                        <h3 class="fw-bold">Open Your Finance</h3>
+                        <img src="../../img/JAGUA_LOGO_PMS.png" alt="" class="logo my-3">
+                        <h3 class="fw-bold">Gerenciador de Usuarios</h3>
                         <p class="text text-body-secondary">
-                            Gerencie suas finanças com facilidade
+                            Gerencie seus usuarios com facilidade
                         </p>
                         <input-component label="Email:" id-input="email" col="col-md-7 col-12">
                             <template v-slot:input>

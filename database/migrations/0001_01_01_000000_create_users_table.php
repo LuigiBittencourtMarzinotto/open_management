@@ -14,9 +14,10 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('email', 191)->unique(); // Reduzir o tamanho para evitar problemas de índice
+            $table->string('email', 191);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->integer('user_tipo')->default(0)->comment('0: User normal, 1: Admin');
             $table->rememberToken();
             $table->timestamps();
         });

@@ -7,7 +7,7 @@
             <div class="row h-100">
               <div class="col-lg-6 col-12 height-100">
                 <component :is="currentComponent" :token="token" :route-dashboard="routeDashboard" :route-login="routeLogin" 
-                  :route-register="routeRegister" :route-code-verification-email="routeCodeVerificationEmail" 
+                  :route-register="routeRegister" :route-code-verification-email="routeCodeVerificationEmail" :route-verified-cep="routeVerifiedCep" 
                   :route-verified-email="routeVerifiedEmail" :route-forgetten-password="routeForgettenPassword"/>
               </div>
               <div class="col-lg-6 bg-overlay d-none d-lg-block"></div>
@@ -22,7 +22,7 @@
 import { mapState } from 'vuex';
 
 export default {
-  props: ['token', 'routeDashboard', 'routeLogin', 'routeRegister', 'routeCodeVerificationEmail', 'routeVerifiedEmail', 'routeForgettenPassword'],
+  props: ['token', 'routeDashboard', 'routeLogin', 'routeRegister', 'routeCodeVerificationEmail', 'routeVerifiedEmail', 'routeForgettenPassword', 'routeVerifiedCep'],
   computed: {
     ...mapState(['currentComponent']),
   },

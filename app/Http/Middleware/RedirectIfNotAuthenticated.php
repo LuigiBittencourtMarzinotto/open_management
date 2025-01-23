@@ -36,6 +36,8 @@ class RedirectIfNotAuthenticated
         } catch (JWTException $e) {
             if (!$request->expectsJson()) {
                 return redirect()->route('login');
+            }else{
+                AttachTokenFromCookie::updateToken();
             }
             
             return response()->json(['message' => 'Token inválido ou expirado'], 401);

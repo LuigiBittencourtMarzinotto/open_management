@@ -2,18 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreDashboardRequest;
-use App\Http\Requests\UpdateDashboardRequest;
+use App\Models\EnderecoUser;
+use Illuminate\Http\Request;
 
-class DashboardController extends Controller
+class EnderecoUserController extends Controller
 {
-
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('app.dashboard');
+        //
     }
 
     /**
@@ -27,7 +26,7 @@ class DashboardController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store($request)
+    public function store(Request $request)
     {
         //
     }
@@ -35,7 +34,7 @@ class DashboardController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($dashboard)
+    public function show(EnderecoUser $enderecoUser)
     {
         //
     }
@@ -43,7 +42,7 @@ class DashboardController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit($dashboard)
+    public function edit(EnderecoUser $enderecoUser)
     {
         //
     }
@@ -51,7 +50,7 @@ class DashboardController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateDashboardRequest $request, $dashboard)
+    public function update(Request $request, EnderecoUser $enderecoUser)
     {
         //
     }
@@ -59,7 +58,7 @@ class DashboardController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($dashboard)
+    public function destroy(EnderecoUser $enderecoUser)
     {
         //
     }

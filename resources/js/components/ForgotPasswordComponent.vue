@@ -11,7 +11,7 @@
                   class="bi bi-arrow-left m-1"></i>Volta</a>
 
             </div>
-            <img src="../../img/FINANCE.png" alt="" class="logo my-3">
+            <img src="../../img/JAGUA_LOGO_PMS.png" alt="" class="logo my-3">
             <h3 class="fw-bold">Esqueceu sua senha?</h3>
             <div class='col-7 my-3'>
               <p class="text text-body-secondary text-center">

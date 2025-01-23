@@ -1,7 +1,7 @@
 <x-mail::message>
 # Olá, {{ $name }}
 
-Seu código do gerenciador financeiro **{{ config('app.name') }}** chegou!
+Seu código do gerenciador de usuarios **{{ config('app.name') }}** chegou!
 
 Ao copiá-lo, volte à página de acesso e insira o código abaixo para confirmar sua identidade.
 

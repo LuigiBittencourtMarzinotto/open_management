@@ -1,6 +1,25 @@
-body {
-    padding: 0 !important; /* Remove o padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
+[data-bs-theme="dark"] {
+    --bg-card-color: #dee2e6;
+    --bg-card-background-color: #333844;
+    --bg-card-color-active: black;
+    --bg-card-background-color-active: #ffffff;
+
+}
+
+[data-bs-theme="light"] {
+    --bg-card-color: black;
+    --bg-card-background-color: #fff;
+    --bg-card-color-active: black;
+    --bg-card-background-color-active: #39323214;
+
+}
+
 
 .custom-link-black {
     color: black; 
@@ -84,27 +103,27 @@ body {
     border-radius: 5rem;
 }
 
+.border-radius-card{
+    border-radius: 20px !important;
+}
+
 .navbar-custom{
     width: 80vw;
     margin: auto;
     padding: .5rem !important;
 }
+
+.nav-link{
+    border-radius: 2rem;
+    cursor: pointer;
+}
+
+.nav-link:hover{
+    color: var(--bg-card-color-active);
+    background-color: var(--bg-card-background-color-active);
+    border-radius: 2rem;
+}
     
-[data-bs-theme="dark"] {
-    --bg-card-color: #dee2e6;
-    --bg-card-background-color: #333844;
-    --bg-card-color-active: black;
-    --bg-card-background-color-active: #ffffff;
-
-}
-
-[data-bs-theme="light"] {
-    --bg-card-color: black;
-    --bg-card-background-color: #fff;
-    --bg-card-color-active: black;
-    --bg-card-background-color-active: #39323214;
-
-}
 
 .btn-no-border:active{
     border: none !important;
@@ -128,4 +147,8 @@ body {
 
 .navbar-custom .active a{
     color: var(--bg-card-color-active);
+}
+
+.card{
+    background-color: var(--bg-card-background-color)!important;
 }
